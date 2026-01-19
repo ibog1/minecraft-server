@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jre
 
 ARG MINECRAFT_VERSION=1.21
-ARG SERVER_JAR_URL=https://piston-data.mojang.com/v1/objects/e0e0cb74f9a8a34b6c0c958763b5e9cecb0e3c0c/server.jar
+ARG SERVER_JAR_URL=https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar
 ENV SERVER_JAR_URL=${SERVER_JAR_URL}
 
 WORKDIR /minecraft
