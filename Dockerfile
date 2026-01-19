@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y wget ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -m minecraft \
     && mkdir -p data \
-    && chown -R minecraft:minecraft /minecraft
+    && chown -R minecraft:minecraft /minecraft \
+    && echo "eula=true" > eula.txt
 
 USER minecraft
 
