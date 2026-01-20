@@ -17,7 +17,7 @@ USER minecraft
 
 RUN wget -O server.jar "${SERVER_JAR_URL}"
 
-VOLUME ["/minecraft/data"]
+VOLUME []
 
 EXPOSE 25565/tcp
 
