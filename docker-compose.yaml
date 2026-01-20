@@ -7,5 +7,5 @@ services:
     environment:
       - EULA=TRUE
     volumes:
-      - ./data:/minecraft
+      - ./data:/data
     restart: unless-stopped
