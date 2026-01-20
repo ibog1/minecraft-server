@@ -17,8 +17,6 @@ USER minecraft
 
 RUN wget -O server.jar "${SERVER_JAR_URL}"
 
-VOLUME []
-
 EXPOSE 25565/tcp
 
 CMD ["java", "-Xms1G", "-Xmx1G", "-jar", "server.jar", "nogui"]
