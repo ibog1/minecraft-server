@@ -12,7 +12,7 @@ The server is exposed on **port 8888** and uses a mounted volume for persistent 
 
 ## Quickstart 
 
-### Requirements
+### Prerequisites
 - Docker
 - Docker Compose
 
