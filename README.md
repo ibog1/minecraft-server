@@ -1,7 +1,7 @@
 # Minecraft Server 
 
 This repository provides a self-built Docker image and a Docker Compose setup to run a **Minecraft Java Server**.
-The server is exposed on **port 8888** and uses a mounted volume for persistent data storage.
+The server is exposed on **port 8888**.
 
 ## Table of Contents
 - [Quickstart](#quickstart)
