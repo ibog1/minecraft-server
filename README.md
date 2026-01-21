@@ -71,7 +71,6 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 ## docker-compose.yaml
 
   ```bash
-  yaml
 
   services:
   mc-server:
