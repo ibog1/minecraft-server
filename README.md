@@ -1,16 +1,12 @@
-# Minecraft Server (Docker & Docker Compose)
+# Minecraft Server 
 
 This repository provides a self-built Docker image and a Docker Compose setup to run a **Minecraft Java Server**.
 The server is exposed on **port 8888** and uses a mounted volume for persistent data storage.
 
 ## Table of Contents
-- [Repository Structure](#repository-structure)
 - [Quickstart](#quickstart)
 - [Usage](#usage)
-- [Persistence](#persistence)
-- [Testing](#testing)
-- [Security Notes](#security-notes)
-- [Important Notes](#important-notes)
+- [Repository Structure](#repository-structure)
 
 ---
 
@@ -24,29 +20,29 @@ The server is exposed on **port 8888** and uses a mounted volume for persistent 
 
 1. Clone the github Project: 
   ```bash
-  git clone
+  git clone git@github.com:ibog1/minecraft-server.git
   ```
 
-2. Download your Minecraft Server from: 
-  ```bash
-  
-  ```
-
-3. Copy your Donwolad on your Root Directory of your Project. 
-  ```bash
-  cp server.jar ./Minecraft_Server
-  ```
-
-4. Navigate to the correct Directory: 
+2. Change into the project directory
   ```bash
   cd minecraft-server
   ```
 
-5. Start the Building with Docker Compose: 
+3. Start the Minecraft server
   ```bash
-  docker compose up --build 
+  docker compose up -d --build
+  ```
+
+4. Check server logs
+  ```bash
+  docker compose logs -f mc-server
   ```
 
 ---
 
-## Repository Structure
+## Usage
+
+Docker Compose Configuration
+
+The Minecraft server is started using docker-compose.yaml.
+The service is exposed on port 8888 and runs internally on port 25565.
