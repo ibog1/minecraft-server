@@ -1,30 +1,25 @@
 FROM eclipse-temurin:21-jre
 
-# Install minimal tooling for download + create non-root user
 RUN apt-get update \
  && apt-get install -y --no-install-recommends ca-certificates curl \
  && rm -rf /var/lib/apt/lists/* \
  && useradd -m -u 10001 minecraft
 
-# Runtime dir (will be mounted via volume)
-WORKDIR /data
-RUN mkdir -p /data && chown -R minecraft:minecraft /data
+# App dir (nicht gemountet)
+WORKDIR /opt/mc
+RUN mkdir -p /opt/mc && chown -R 10001:10001 /opt/mc
 
-# Default config (can be overridden via docker-compose)
-ENV EULA=true \
-    XMS=1G \
-    XMX=2G
-
-# Download server.jar (no prebuilt minecraft image)
 ARG SERVER_JAR_URL="https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar"
-RUN curl -fsSL "${SERVER_JAR_URL}" -o /data/server.jar \
- && chown minecraft:minecraft /data/server.jar
+RUN curl -fsSL "${SERVER_JAR_URL}" -o /opt/mc/server.jar \
+ && chown 10001:10001 /opt/mc/server.jar
 
-# Entrypoint creates eula.txt every start (so it always boots)
+# Data dir (wird gemountet)
+RUN mkdir -p /data && chown -R 10001:10001 /data
+
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && chown minecraft:minecraft /entrypoint.sh
+RUN chmod +x /entrypoint.sh && chown 10001:10001 /entrypoint.sh
 
-USER minecraft
+USER 10001
 
 EXPOSE 25565/tcp
 ENTRYPOINT ["/entrypoint.sh"]
