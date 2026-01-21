@@ -58,11 +58,51 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
   USER 10001
   ```
 
+> [!IMPORTANT]  
+> A non-root user is used to improve container security.
+> The Minecraft server.jar is stored in /opt/mc and not in the mounted data directory
+> No secrets or credentials are hardcoded in the image
+
+---
+
+## docker-compose.yaml
 
   ```bash
   yaml
 
-  volumes:
-  - ./data:/data
+  services:
+  mc-server:
+    ports:
+      - "8888:25565"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
 
   ```
+
+> [!IMPORTANT]
+> Port 8888 is exposed externally as required by the project
+> The ./data:/data volume ensures data persistence
+> Runtime data is intentionally excluded from version control
+> Only non-sensitive configuration values should be defined here
+
+---
+
+## entrypoint.sh
+
+  ```bash
+  yaml
+
+  cd /data
+  echo "eula=${EULA:-true}" > eula.txt
+
+  exec java -jar /opt/mc/server.jar nogui
+
+  ```
+
+> [!IMPORTANT]
+> The working directory is set to /data so configuration files are created in the persistent volume
+> The Minecraft EULA is accepted automatically via an environment variable
+> The server is started in a reproducible and automated way
+
+
