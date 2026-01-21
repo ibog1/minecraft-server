@@ -2,6 +2,7 @@ version: '3.8'
 services:
   mc-server:
     build: .
+    user: "10001:10001"
     ports:
       - "8888:25565"
     environment:
