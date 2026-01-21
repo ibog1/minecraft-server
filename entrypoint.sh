@@ -3,17 +3,20 @@ set -eu
 
 cd /data
 
-echo "eula=${EULA:-true}" > eula.txt
+# EULA must be provided via environment variable
+echo "eula=${EULA}" > eula.txt
 
-# optional: server.properties erzeugen, damit der Fehler weg ist
+# server.properties generated strictly from environment variables
+# User must define all values in .env
 if [ ! -f server.properties ]; then
   cat > server.properties <<EOF
-server-port=${SERVER_PORT:-25565}
-online-mode=${ONLINE_MODE:-true}
-enable-query=${ENABLE_QUERY:-true}
-query.port=${QUERY_PORT:-25565}
-motd=${MOTD:-DevSecOps Server}
+server-port=${SERVER_PORT}
+online-mode=${ONLINE_MODE}
+enable-query=${ENABLE_QUERY}
+query.port=${QUERY_PORT}
+motd=${MOTD}
 EOF
 fi
 
-exec java -Xms"${XMS:-1G}" -Xmx"${XMX:-2G}" -jar /opt/mc/server.jar nogui
+# JVM memory settings must be provided via environment variables
+exec java -Xms"${XMS}" -Xmx"${XMX}" -jar /opt/mc/server.jar nogui
