@@ -7,5 +7,5 @@ services:
     environment:
       - EULA=true
     volumes:
-      - .mc_data:/data
+      - ./data:/data
     restart: unless-stopped
