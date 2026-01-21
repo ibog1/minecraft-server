@@ -42,11 +42,13 @@ The server is exposed on **port 8888** and uses a mounted volume for persistent 
 
 ## Usage
 
-Docker Compose Configuration
+### Dockerfile
 
--The Minecraft server is started using docker-compose.yaml.
--The service is exposed on port 8888 and runs internally on port 25565.
-Data persistence is handled via a mounted volume:
+The `Dockerfile` builds a custom Minecraft server image without using a prebuilt image.
+
+
+
+
   ```bash
   yaml
 
