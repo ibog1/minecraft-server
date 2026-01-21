@@ -1,11 +1,22 @@
 services:
   mc-server:
     build: .
-    user: "10001:10001"
     ports:
       - "8888:25565"
+    env_file:
+      - .env
     environment:
-      - EULA=true
+      - ENABLE_EULA=${ENABLE_EULA}
+      - XMS=${XMS}
+      - XMX=${XMX}
+      - SERVER_PORT=${SERVER_PORT}
+      - ONLINE_MODE=${ONLINE_MODE}
+      - ENABLE_QUERY=${ENABLE_QUERY}
+      - QUERY_PORT=${QUERY_PORT}
+      - MOTD=${MOTD}
     volumes:
-      - ./data:/data
+      - mc_data:/data
     restart: unless-stopped
+
+volumes:
+  mc_data:
