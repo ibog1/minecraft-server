@@ -5,7 +5,7 @@ services:
     ports:
       - "8888:25565"
     environment:
-      - EULA=TRUE
+      - EULA=true
     volumes:
       - ./data:/data
     restart: unless-stopped
