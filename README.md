@@ -18,7 +18,7 @@ The server is exposed on **port 8888**.
 
 ---
 
-1. Clone the github Project: 
+1. Clone the GitHub Project: 
   ```bash
   git clone git@github.com:ibog1/minecraft-server.git
   ```
