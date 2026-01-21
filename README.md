@@ -6,7 +6,6 @@ The server is exposed on **port 8888**.
 ## Table of Contents
 - [Quickstart](#quickstart)
 - [Usage](#usage)
-- [Repository Structure](#repository-structure)
 
 ---
 
