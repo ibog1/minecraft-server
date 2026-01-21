@@ -85,9 +85,13 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 
 > [!IMPORTANT]
 > Port 8888 is exposed externally as required by the project
+> 
 > The ./data:/data volume ensures data persistence
+> 
 > Runtime data is intentionally excluded from version control
+> 
 > Only non-sensitive configuration values should be defined here
+> 
 
 ---
 
@@ -105,7 +109,35 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 
 > [!IMPORTANT]
 > The working directory is set to /data so configuration files are created in the persistent volume
+> 
 > The Minecraft EULA is accepted automatically via an environment variable
+> 
 > The server is started in a reproducible and automated way
+>
+
+---
+
+### Persistence Test
+
+#### 1. Create a test file inside the persistent volume
+
+  ```bash
+  docker compose exec mc-server sh -c 'echo persist-test > /data/persist.txt'
+  ```
+
+#### 2. Restart the container
+
+  ```bash
+  docker compose restart mc-server
+  ```
+
+#### 3. Verify that the file still exists
+
+  ```bash
+  docker compose exec mc-server cat /data/persist.txt
+  ```
+
+If ``persist-test`` is printed, persistence is successfully verified.
+
 
 
