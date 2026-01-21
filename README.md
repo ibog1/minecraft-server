@@ -28,12 +28,17 @@ The server is exposed on **port 8888**.
   cd minecraft-server
   ```
 
-3. Start the Minecraft server
+3. Create the environment configuration file
+  ```bash
+  cp .env.example .env
+  ```
+
+4. Start the Minecraft server
   ```bash
   docker compose up -d --build
   ```
 
-4. Check server logs
+5. Check server logs
   ```bash
   docker compose logs -f mc-server
   ```
@@ -83,14 +88,14 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
   ```
 
 > [!IMPORTANT]
-> Port 8888 is exposed externally as required by the project
-> 
-> The ./data:/data volume ensures data persistence
-> 
-> Runtime data is intentionally excluded from version control
-> 
-> Only non-sensitive configuration values should be defined here
-> 
+> Port 8888 is exposed externally as required by the project.
+>
+> Data persistence is implemented using a **named Docker volume**.
+>
+> Runtime data is intentionally excluded from version control.
+>
+> Only non-sensitive configuration values should be defined here.
+
 
 ---
 
