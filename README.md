@@ -60,8 +60,11 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 
 > [!IMPORTANT]  
 > A non-root user is used to improve container security.
+> 
 > The Minecraft server.jar is stored in /opt/mc and not in the mounted data directory
+> 
 > No secrets or credentials are hardcoded in the image
+> 
 
 ---
 
