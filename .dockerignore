@@ -1,0 +1,26 @@
+# Git / Repo metadata
+.git
+.gitignore
+
+# Environment files
+.env
+.env.*
+
+# Runtime / persistent data
+data/
+.mc_data/
+
+# Minecraft binaries
+*.jar
+
+# Documentation & misc
+README.md
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Python (optional tooling / tests)
+__pycache__/
+*.pyc
