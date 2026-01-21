@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     environment:
-      - ENABLE_EULA=${ENABLE_EULA}
+      - EULA=${ENABLE_EULA}
       - XMS=${XMS}
       - XMX=${XMX}
       - SERVER_PORT=${SERVER_PORT}
