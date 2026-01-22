@@ -51,7 +51,7 @@ The server is exposed on **port 8888**.
 
 ### Dockerfile
 
-The `Dockerfile` builds a custom Minecraft server image without using a prebuilt image.
+The `[`Dockerfile`](./Dockerfile)` builds a custom Minecraft server image without using a prebuilt image.
 
   ```bash
 
