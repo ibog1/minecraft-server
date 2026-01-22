@@ -89,17 +89,7 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 
 ---
 
-## entrypoint.sh
-
-  ```bash
-  yaml
-
-  cd /data
-  echo "eula=${EULA:-true}" > eula.txt
-
-  exec java -jar /opt/mc/server.jar nogui
-
-  ```
+## [`entrypoint.sh`](./entrypoint.sh)
 
 > [!IMPORTANT]
 > The working directory is set to /data so configuration files are created in the persistent volume
