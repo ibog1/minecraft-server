@@ -29,8 +29,11 @@ The server is exposed on **port 8888**.
 
 3. Create the environment configuration file
   ```bash
-  cp .env.example .env
+  cp example.env .env
   ```
+> [!NOTE]
+> Edit the ``.env`` file and adjust the values according to your environment before starting the container.
+
 
 4. Start the Minecraft server
   ```bash
@@ -73,6 +76,7 @@ The `Dockerfile` builds a custom Minecraft server image without using a prebuilt
 ---
 
 ## docker-compose.yaml
+[`docker-compose.yaml`](./docker-compose.yaml)
 
   ```bash
 
