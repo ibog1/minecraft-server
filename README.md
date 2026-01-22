@@ -51,19 +51,7 @@ The server is exposed on **port 8888**.
 
 ### Dockerfile
 
-The `[`Dockerfile`](./Dockerfile)` builds a custom Minecraft server image without using a prebuilt image.
-
-  ```bash
-
-  FROM eclipse-temurin:21-jre
-
-  RUN useradd -m -u 10001 minecraft
-
-  WORKDIR /opt/mc
-  RUN curl -fsSL "<SERVER_JAR_URL>" -o /opt/mc/server.jar
-
-  USER 10001
-  ```
+The [`Dockerfile`](./Dockerfile) builds a custom Minecraft server image without using a prebuilt image.
 
 > [!IMPORTANT]  
 > A non-root user is used to improve container security.
